@@ -1,7 +1,8 @@
 <?php
 include 'Conn.php';
-
+//!------------------------------------------//
 header('Content-Type: application/json');
+//!------------------------------------------//
 
 $sql = "SELECT * FROM `t-crud`";
 $result = $conn->query($sql);
