@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $Email = $_POST['Email'];
     $Phone = $_POST['Phone'];
 
-    $sql = "UPDATE `t-crud` SET Name ='$Name', Email ='$Email', Phone ='$Phone'  WHERE id = $id ";
+    $sql = "UPDATE `t-crud` SET  Name ='$Name', Email ='$Email', Phone ='$Phone'  WHERE id = $id ";
     if ($conn->query($sql) === TRUE) {
         echo "Record updated successfully";
     } else {

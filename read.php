@@ -1,7 +1,9 @@
 <?php
-include 'conn.php';
+include 'Conn.php';
 
-$sql = "SELECT * FROM `t_crud`";
+header('Content-Type: application/json');
+
+$sql = "SELECT * FROM `t-crud`";
 $result = $conn->query($sql);
 
 $tasks = [];
@@ -13,4 +15,3 @@ if ($result->num_rows > 0) {
 }
 
 echo json_encode($tasks);
-?>
