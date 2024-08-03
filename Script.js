@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   fetchTasks();
+                                                            //?------------------------------------------CREATE-//
 
   document
     .getElementById("createForm")
@@ -57,6 +58,10 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch((error) => console.error("Error:", error));
     });
 
+                                                            //?-------------------------------------------------//
+                                                            //--------------------------------------------------//
+                                                            //*------------------------------------------Update-//
+
   document
     .getElementById("editForm")
     .addEventListener("submit", function (event) {
@@ -73,12 +78,14 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("editTaskModal")
           );
           container.hide();
-
         })
         .catch((error) => console.error("Error:", error));
     });
 });
 
+                                                          //*-------------------------------------------------//
+                                                          //--------------------------------------------------//
+                                                          //!------------------------------------------Read-//
 function fetchTasks() {
   fetch("./Read.php")
     .then((response) => response.json())
@@ -105,7 +112,9 @@ function fetchTasks() {
     })
     .catch((error) => console.error("Error:", error));
 }
-
+                                                          //!-------------------------------------------------//
+                                                        //--------------------------------------------------//
+                                                        //todo------------------------------------------Delete-//
 function deleteTask(id) {
   var formData = new FormData();
   formData.append("id", id);
@@ -120,7 +129,9 @@ function deleteTask(id) {
     })
     .catch((error) => console.error("Error:", error));
 }
-
+                                                          //todo-------------------------------------------------//
+                                                          //--------------------------------------------------//
+                                                          //*------------------------------------------EDITUpdate-//
 function EditData(id, Name, Phone, Email) {
   document.getElementById("edit-id").value = id;
   document.getElementById("Name_Update").value = Name;
@@ -128,6 +139,5 @@ function EditData(id, Name, Phone, Email) {
   document.getElementById("Email_Update").value = Email;
   var container = new bootstrap.Modal(document.getElementById("editTaskModal"));
   container.show();
-  
-
 }
+                                                          //*---------------------------------------------------//
