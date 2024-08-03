@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const saveI = document.getElementById("saveI");
   const cancelI2 = document.getElementById("CancelI2");
   const UpdateI = document.getElementById("UpdateI");
-  const UPEDIT = document.getElementById("UPEDIT");
   const body = document.body;
 
   body.classList.add("activeIndex");
@@ -31,17 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     body.classList.remove("activeInsert");
     body.classList.remove("activeUpdate");
   });
-  UpdateI.addEventListener("click", () => {
-    body.classList.add("activeIndex");
-    body.classList.remove("activeInsert");
-    body.classList.remove("activeUpdate");
-  });
-  UPEDIT.addEventListener("click", () => {
-    body.classList.add("activeUPEDIT");
-    body.classList.remove("activeInsert");
-    body.classList.remove("activeUpdate");
-    body.classList.remove("activeIndex");
-  });
+ 
 });
 
 //-------------------------------------------------------------------------------------------//
@@ -56,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .addEventListener("submit", function (event) {
       event.preventDefault();
       var formData = new FormData(this);
-      fetch("./insert.php", {
+      fetch("./create.php", {
         method: "POST",
         body: formData,
       })
@@ -104,7 +93,7 @@ function fetchTasks() {
                     <td>${task.Phone}</td>
                     <td>${task.Email}</td>
                     <td>
-                        <a class="link-dark" onclick="editTask('${task.id}', '${task.Name}', '${task.Phone}', '${task.Email}')"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i>
+                        <a class="link-dark" onclick="EditData('${task.id}', '${task.Name}', '${task.Phone}', '${task.Email}')"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i>
                         </a>
                         <a class="link-dark" onclick="deleteTask(${task.id})">
                             <i class="fa-solid fa-trash fs-5"></i>
@@ -132,12 +121,13 @@ function deleteTask(id) {
     .catch((error) => console.error("Error:", error));
 }
 
-function editTask(id, Name, Phone, Email) {
+function EditData(id, Name, Phone, Email) {
   document.getElementById("edit-id").value = id;
   document.getElementById("Name_Update").value = Name;
   document.getElementById("Phone_Update").value = Phone;
   document.getElementById("Email_Update").value = Email;
   var container = new bootstrap.Modal(document.getElementById("editTaskModal"));
   container.show();
+  
 
 }

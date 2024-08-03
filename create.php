@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $Email = $_POST['Email'];
     $Phone = $_POST['Phone'];
 
-    $sql = "INSERT INTO `t-crud` (`id`,`Name`, `Phone`) VALUES (NULL,'$Name', '$Phone','$Email')";
+    $sql = "INSERT INTO `t-crud` (`id`, `Name`, `Email`, `Phone`) VALUES ( NULL ,'$Name','$Email','$Phone')";
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
     } else {
@@ -14,4 +14,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-header("Location: index.html");
+
+

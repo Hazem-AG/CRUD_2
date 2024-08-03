@@ -146,3 +146,13 @@
         body.activeUpdate #insert {
             display: none;
         }
+            body.activeIndex.modal-open .modal-backdrop.show{
+                    display: none;
+                }
+                 body.activeIndex.modal-open #editTaskModal{
+                    display: block;
+                }
+                body.activeIndex.modal-open .container-lg{
+                    display: none;
+                }
+                
